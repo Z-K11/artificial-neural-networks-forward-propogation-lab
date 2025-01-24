@@ -6,3 +6,7 @@ print(weights)
 biases = np.around(np.random.uniform(size=3),decimals=2)
 '''We have 6 weights and 3 biases, one for each node in the hidden layer as well as for each node in the output layer.'''
 print(biases)
+'''our neuron has 2 inputs one outputs 6 weights and 3 biases for the hidden layer it two random inputs are '''
+x_1 =0.5
+x_2 =0.85
+print ('x1 is {} and x2 is {}'.format(x_1,x_2))
