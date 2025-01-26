@@ -66,6 +66,8 @@ def initialize_network(num_inputs,num_hidden_layers,num_nodes_hidden,num_output_
     return network
 def compute_weighted_sum(input,weights,bias):
     return np.sum(input*weights)+bias
+def node_activation(weighted_sum):
+    return 1.0/(1.0 + np.exp(-1*weighted_sum))
 from random import seed
 np.random.seed(12)
 inputs= np.around(np.random.uniform(size=5),decimals=4)
@@ -75,4 +77,5 @@ node_weights = network['layer_1']['node_1']['weights']
 node_bias = network['layer_1']['node_1']['bias']
 weighted_sum = compute_weighted_sum(inputs,node_weights,node_bias)
 print('The weighted sum at the first node in the hidden layer is {}'.format(np.around(weighted_sum[0], decimals=4)))
-    
+activation = node_activation(weighted_sum)
+print('The output of the first node in the hidden layer is {}'.format(np.around(activation[0], decimals=4)))
