@@ -17,3 +17,5 @@ print('the weighted sum of input at the first and second node of the hidden laye
 '''assuming a sigmoid function as the activation function let's compute the activation of the first node '''
 a_11 = 1.0/(1.0+np.exp(-z_11))
 print('activation of the first node in the hidden layer is {}'.format(np.around(a_11,decimals=4)))
+a_12 = 1.0/(1.0+np.exp(-z_12))
+print('activation of the second node in the hidden layer is {}'.format(np.around(a_12,decimals=4)))
