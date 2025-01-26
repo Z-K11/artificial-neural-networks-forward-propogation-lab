@@ -23,3 +23,11 @@ z_2=a_11*weights[4]+a_12*weights[5]+biases[2]
 print('the weighted sum at the only node of the output layer is {}'.format(np.around(z_2,decimals=4)))
 a_2 = 1.0/(1.0 + np.exp(-z_2))
 print('activation of the output layer is {}'.format(np.around(a_2,decimals=4)))
+'''although this how a neural network works computing the weighted sum and activations at each node is not efficient
+we will automate this process let's first define the structure of our neural network'''
+n=2 # number of input
+num_of_hidden_layers =2
+m=[2,2] # number of nodes in the hidden layer
+'''m is a list so that each index has the number of nodes for each layer we have two layers so we have two elements in the 
+list '''
+num_of_nodes_output=1
