@@ -21,3 +21,5 @@ a_12 = 1.0/(1.0+np.exp(-z_12))
 print('activation of the second node in the hidden layer is {}'.format(np.around(a_12,decimals=4)))
 z_2=a_11*weights[4]+a_12*weights[5]+biases[2]
 print('the weighted sum at the only node of the output layer is {}'.format(np.around(z_2,decimals=4)))
+a_2 = 1.0/(1.0 + np.exp(-z_2))
+print('activation of the output layer is {}'.format(np.around(a_2,decimals=4)))
