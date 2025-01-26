@@ -47,3 +47,32 @@ for layer in range(num_of_hidden_layers+1):
                                         'bias':np.around(np.random.uniform(size=1),decimals=2)}
     num_of_previous_nodes=num_nodes
 print(network)
+def initialize_network(num_inputs,num_hidden_layers,num_nodes_hidden,num_output_nodes):
+    num_nodes_previous = num_inputs
+    network={}
+    for layer in range(num_hidden_layers+1):
+        if layer ==num_hidden_layers:
+            layer_name='output_layer'
+            num_nodes=num_output_nodes
+        else:
+            layer_name='layer_{}'.format(layer+1)
+            num_nodes=num_nodes_hidden[layer]
+        network[layer_name]={}
+        for node in range(num_nodes):
+            node_name='node_{}'.format(node +1)
+            network[layer_name][node_name]={'weights':np.around(np.random.uniform(size=num_nodes_previous),decimals=4),
+                                        'bias':np.around(np.random.uniform(size=1),decimals=4)}
+        num_nodes_previous=num_nodes
+    return network
+def compute_weighted_sum(input,weights,bias):
+    return np.sum(input*weights)+bias
+from random import seed
+np.random.seed(12)
+inputs= np.around(np.random.uniform(size=5),decimals=4)
+print('the input to the networks are {}'.format(inputs))
+network = initialize_network(5,3,[3,2,3],1)
+node_weights = network['layer_1']['node_1']['weights']
+node_bias = network['layer_1']['node_1']['bias']
+weighted_sum = compute_weighted_sum(inputs,node_weights,node_bias)
+print('The weighted sum at the first node in the hidden layer is {}'.format(np.around(weighted_sum[0], decimals=4)))
+    
