@@ -31,3 +31,19 @@ m=[2,2] # number of nodes in the hidden layer
 '''m is a list so that each index has the number of nodes for each layer we have two layers so we have two elements in the 
 list '''
 num_of_nodes_output=1
+num_of_previous_nodes = n 
+network = {}
+for layer in range(num_of_hidden_layers+1):
+    if layer == num_of_hidden_layers:
+        layer_name ='output'
+        num_nodes = num_of_nodes_output
+    else:
+        layer_name='layers_{}'.format(layer+1)
+        num_nodes=m[layer]
+    network[layer_name]={}
+    for node in range(num_nodes):
+        node_name ='node_{}'.format(layer+1)
+        network[layer_name][node_name]={'weights':np.around(np.random.uniform(size=num_of_previous_nodes),decimals=2),
+                                        'bias':np.around(np.random.uniform(size=1),decimals=2)}
+    num_of_previous_nodes=num_nodes
+print(network)
